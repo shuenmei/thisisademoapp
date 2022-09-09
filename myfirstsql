@@ -1,0 +1,76 @@
+DROP Table customer;
+
+CREATE TABLE customer (
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30),
+    gender VARCHAR(30),
+    age INT,
+    address VARCHAR(50),
+    city VARCHAR(50),
+    state CHAR(2),
+    zip_code CHAR(5)
+);
+
+SELECT * FROM customer
+
+INSERT INTO customer
+  (first_name, last_name, gender, age, address, city, state, zip_code)
+VALUES
+  ('Michael', 'Meyer', 'Male', 24, '1021 Eddie Knolls Apt. 087', 'South Geraldton', 'RI', 43709),
+  ('Cindy', 'Stephens', 'Female', 23, '838 Brown Street', 'East Christina', 'MT', 07829),
+  ('John', 'Jackson', 'Male', 34, '5319 Candice Motorway', 'Adkinstown', 'AZ', 89721),
+  ('Alexander', 'Martinez', 'Male', 32, 'USNS Mosley', 'FPO', 'AA', 24673);
+
+
+SELECT first_name
+FROM customer;
+
+SELECT first_name, last_name, age
+FROM customer
+WHERE
+  gender = 'Male'
+  AND age <= 34;
+  
+---------------------------  
+-- NEW SECTION --  
+-- EXERCISE: CREATE Table--
+---------------------------
+DROP TABLE IF EXISTS states;
+
+CREATE TABLE states (
+  state_name VARCHAR(50),
+  state_abbreviation CHAR(2),
+  population INT,
+  state_property_tax_rate FLOAT
+);
+  
+  
+-- Insert data into the table
+INSERT INTO states
+(state_name, state_abbreviation, population, state_property_tax_rate)
+VALUES
+('Florida', 'FL', 21477737, 0.0093),
+('Alabama', 'AL', 4903185, 0.0042),
+('Texas', 'TX', 28995881, 0.0181),
+('Kentucky', 'KY', 4467673, 0.0086),
+('Virginia', 'VA', 8535519, 0.0081),
+('Louisiana', 'LA', 4648794, 0.0053),
+('Utah', 'UT', 3205958, 0.0064),
+('Vermont', 'VT', 623989, 0.0188);  
+  
+  
+  
+-- SELECT state_name, population FROM states 
+SELECT * FROM states
+WHERE population > 5000000  
+AND state_property_tax_rate < 0.01
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
